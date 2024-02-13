@@ -55,11 +55,13 @@ try
     var env = builder.Environment;
 
 
-    builder.Services.AddInfrastructure()
-    .AddSecurity(configuration)
-    .AddSwagger(configuration)
-    .AddScoped<MsGraphService>()
-    .AddTransient<ICustomHeaderService, SwaggerCspRelaxingHeaderService>();
+    builder.Services
+        .AddInfrastructure()
+        .AddSecurity(configuration)
+        .AddSwagger(configuration)
+        .AddScoped<MsGraphService>()
+        .AddScoped<DrinksService>()
+        .AddTransient<ICustomHeaderService, SwaggerCspRelaxingHeaderService>();
 
     if (env.IsDevelopment())
     {
