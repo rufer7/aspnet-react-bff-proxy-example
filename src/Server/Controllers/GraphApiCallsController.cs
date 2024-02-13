@@ -1,4 +1,3 @@
-using ReactBffProxy.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,9 +20,13 @@ public class GraphApiCallsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<string>> Get()
+    public async Task<ActionResult<IEnumerable<string>>> Get()
     {
         var userData = await _graphApiClientService.GetGraphApiUser();
-        return new List<string> { $"DisplayName: {userData.DisplayName}", $"GivenName: {userData.GivenName}", $"AboutMe: {userData.AboutMe}" };
+        if (userData is null)
+        {
+            return NotFound();
+        }
+        return Ok(new List<string> { $"DisplayName: {userData.DisplayName}", $"GivenName: {userData.GivenName}", $"AboutMe: {userData.AboutMe}" });
     }
 }

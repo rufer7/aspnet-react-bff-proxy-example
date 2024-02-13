@@ -3,7 +3,6 @@ using Azure.Identity;
 using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 using ReactBffProxy.Server;
 using ReactBffProxy.Server.Extensions;
-using ReactBffProxy.Services;
 using Serilog;
 
 #pragma warning disable CA1305

@@ -1,6 +1,7 @@
 using Microsoft.Graph;
+using Microsoft.Graph.Models;
 
-namespace ReactBffProxy.Services;
+namespace ReactBffProxy.Server;
 
 public class MsGraphService
 {
@@ -11,12 +12,10 @@ public class MsGraphService
         _graphServiceClient = graphServiceClient;
     }
 
-    public async Task<User> GetGraphApiUser()
+    public async Task<User?> GetGraphApiUser()
     {
         return await _graphServiceClient
             .Me
-            .Request()
-            .WithScopes(new[] { "User.ReadBasic.All", "user.read" })
             .GetAsync();
     }
 
@@ -24,15 +23,14 @@ public class MsGraphService
     {
         try
         {
-            var photo = string.Empty;
             // Get user photo
-            using (var photoStream = await _graphServiceClient
-                       .Me.Photo.Content.Request()
-                       .WithScopes(new[] { "User.ReadBasic.All", "user.read" }).GetAsync())
-            {
-                var photoByte = ((MemoryStream)photoStream).ToArray();
-                photo = Convert.ToBase64String(photoByte);
-            }
+            await using var photoStream = await _graphServiceClient
+                .Me
+                .Photo
+                .Content
+                .GetAsync();
+            var photoByte = ((MemoryStream)photoStream).ToArray();
+            var photo = Convert.ToBase64String(photoByte);
 
             return photo;
         }
