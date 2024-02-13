@@ -63,7 +63,7 @@ public class AuthController : ControllerBase
 
         var userInfo = new UserInfo { IsAuthenticated = true };
 
-        if (claimsPrincipal?.Identity is ClaimsIdentity claimsIdentity)
+        if (claimsPrincipal.Identity is ClaimsIdentity claimsIdentity)
         {
             userInfo.NameClaimType = claimsIdentity.NameClaimType;
             userInfo.RoleClaimType = claimsIdentity.RoleClaimType;
@@ -74,7 +74,7 @@ public class AuthController : ControllerBase
             userInfo.RoleClaimType = ClaimTypes.Role;
         }
 
-        if (claimsPrincipal?.Claims?.Any() ?? false)
+        if (claimsPrincipal.Claims?.Any() ?? false)
         {
             // Add just the name claim
             var claims = claimsPrincipal
