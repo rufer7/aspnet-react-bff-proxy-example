@@ -12,7 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{87B9E6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactBffProxy.Shared", "src\Shared\ReactBffProxy.Shared.csproj", "{665B3F0D-C2B7-4BF4-9333-E1794EEB201A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Tests", "src\Tests\Server.Tests\Server.Tests.csproj", "{F40AD879-0C4E-4877-82C7-FCD6457C00ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Tests", "src\Server.Tests\Server.Tests.csproj", "{F40AD879-0C4E-4877-82C7-FCD6457C00ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{48E0B12D-2A24-4CB0-B956-B29D0ACBDE32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{82A11149-974A-4FD0-820E-F3B6DA48A1FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{37DFADAA-3CEC-4DC2-919F-D721E6762108} = {87B9E613-D19F-4F9C-93F4-7037DA5844CB}
+		{665B3F0D-C2B7-4BF4-9333-E1794EEB201A} = {48E0B12D-2A24-4CB0-B956-B29D0ACBDE32}
+		{F40AD879-0C4E-4877-82C7-FCD6457C00ED} = {82A11149-974A-4FD0-820E-F3B6DA48A1FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DBF8473-06FC-43AF-A14F-41F17AB93C7A}
