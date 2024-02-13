@@ -1,0 +1,9 @@
+{
+    "loading": "Lädt...",
+    "noOptions": "Keine Optionen",
+    "loggedInTooltip": "Eingeloggt als: ",
+    "buttons": {
+        "ok": "OK",
+        "cancel": "Abbrechen"
+    }
+}
